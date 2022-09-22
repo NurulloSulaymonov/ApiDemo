@@ -1,4 +1,5 @@
 using Domain.Wrapper;
+using Infrastructure.DataContext;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -6,10 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 public class QuoteController : ControllerBase
 {
     private QuoteService _quoteService;
-    public QuoteController()
+    public QuoteController(QuoteService quoteService)
     {
-        _quoteService = new QuoteService();
+        _quoteService = quoteService;
     }
+  
 
     [HttpGet("getquotes")]
     public async Task<Response<List<Quote>>> GetQuotes()
