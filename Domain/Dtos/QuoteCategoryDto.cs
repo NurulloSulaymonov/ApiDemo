@@ -6,3 +6,4 @@ public class QuoteCategoryDto
     public string QuoteText { get; set; }
     public string CategoryName { get; set; }
 }
+

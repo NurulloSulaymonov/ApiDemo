@@ -1,3 +1,4 @@
+using Domain.Dtos;
 using Domain.Wrapper;
 using Infrastructure.DataContext;
 using Microsoft.AspNetCore.Mvc;
@@ -27,7 +28,7 @@ public class QuoteController : ControllerBase
 
 
     [HttpPost("AddQuote")]
-    public async Task<Response<Quote>> AddQuote(Quote quote)
+    public async Task<Response<GetQuoteDto>> AddQuote([FromForm]CreateQuoteDto quote)
     {
         return await _quoteService.AddQuote(quote);
     }
